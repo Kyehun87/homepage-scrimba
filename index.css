@@ -1,0 +1,36 @@
+:root {
+    box-sizing: border-box;
+    /* background-color: red; */
+    --title: 48px;
+    --header: 18px;
+    --body: 16px;
+    --intro-text: 18px;
+    --buttonnav: 14px;
+    --yellow: #F18119;
+    --black: #000000;
+    --grey: #404040;
+    --white: #FFF;
+    --bolder: 700;
+    --mainfont: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--mainfont);
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+h1,
+h2,
+strong {
+    font-weight: var(--bolder);
+}
+
+/* hero area */
+
+.hero {
+    display: grid;
+    background-image: url(img/hero-bg.jpg);
+    color: var(--black);
+}
