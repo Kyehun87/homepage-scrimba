@@ -22,6 +22,12 @@ body {
     font-family: var(--mainfont);
     font-size: 1rem;
     color: var(--grey);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 /* Typography */
@@ -48,9 +54,27 @@ strong {
     margin-top: 1.25em;
 }
 
+.section-title::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin-top: 10px;
+    background: var(--yellow);
+}
+
+.section-title-center::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title:first-child {
+    margin-top: 0;
+}
+
 /* buttons */
 .btn {
-    padding: .5em 1.5em;
+    padding: .5em 1.75em;
     font-weight: var(--bolder);
     margin-top: .5em;
     text-decoration: none;
@@ -71,7 +95,8 @@ strong {
 }
 
 @media (min-width: 600px) {
-    .main-grid {
+    /* Main grid media query was causing the alignment issues so I left the main grid the same at 600px and just applied this to the hero grid */
+    .hero-grid {
         grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(180px, 320px)) minmax(1em, 1fr);
     }
 }
@@ -81,6 +106,14 @@ strong {
 .header {
     background: var(--black);
 }
+
+.header-home {
+    background: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+
 
 .header-content {
     display: flex;
@@ -175,6 +208,10 @@ strong {
     .nav-link {
         font-size: var(--body);
     }
+
+    .header-home .nav {
+        background: transparent;
+    }
 }
 
 /* footer */
@@ -182,6 +219,7 @@ strong {
 .footer {
     background: var(--lightgrey);
     padding: 4em 0;
+    text-align: center;
 
     grid-template-areas: 
         ". social ."
@@ -214,7 +252,11 @@ strong {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+}
+
+.social-links {
+    justify-content: space-between;
 }
 
 .social-link {
@@ -250,7 +292,7 @@ strong {
     background-size: cover;
     background-position: center;
     color: var(--white);
-    padding: 4em 0;
+    padding: 8em 0 4em;
 }
 
 .hero > * {
@@ -260,7 +302,7 @@ strong {
 
 @media (min-width: 600px) {
     .hero {
-        padding: 6em 0;
+        padding: 10em 0 6em;
     }
     
     .hero > * {
@@ -287,4 +329,52 @@ strong {
     .col:first-child {
         grid-column: 2 / span 1;
     }
+}
+
+/* Template page */
+
+.page-title {
+    font-size: var(--title);
+    grid-column:  2 / -2;
+    margin-bottom: 0;
+}
+
+.page-title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 30px;
+    background: var(--yellow);
+    margin-top: -40px;
+    margin-left: 15px;
+}
+
+.subtitle {
+    font-size: var(--intro-text);
+    grid-column: 2 / -2;
+    margin: .5em 0 1.5em;
+}
+
+.main-template {
+    padding: 4em 0;
+}
+
+.main-template > * {
+    grid-column: 2 / -2;
+}
+
+.main-image {
+    margin-bottom: 1.5em;
+    box-shadow: 5px 5px 0px var(--black), 10px 10px 0 var(--yellow);
+}
+
+@media (min-width: 600px) {
+    .main-image {
+        grid-column: 2;
+    }
+
+    .main-text {
+        grid-column: 3 / span 2;
+    }
+
 }
